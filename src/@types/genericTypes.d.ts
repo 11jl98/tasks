@@ -12,3 +12,8 @@ export type TaskType = {
   date_start?: string | null;
   date_end?: string | null;
 };
+
+export type AuthType = {
+  user_name: string;
+  password: string
+}

@@ -1,15 +1,25 @@
 import Bucket from "../../components/Buckets";
 import { BucketsInTasksProvider } from "../../context/BucketsInTasksContext";
 import { TasksProvider } from "../../context/TasksContext";
+import { UserProvider } from "../../context/UserContext";
 import ModalTask from "../../components/Tasks/ModalTask";
+import Nav from "../../components/Navbar";
+import Login from "../../components/Login";
+
 function Home() {
   return (
-    <BucketsInTasksProvider>
-      <TasksProvider>
-        <Bucket />
-        <ModalTask />
-      </TasksProvider>
-    </BucketsInTasksProvider>
+    <>
+      <UserProvider>
+        <Nav />
+        <Login />
+      </UserProvider>
+      <BucketsInTasksProvider>
+        <TasksProvider>
+          <Bucket />
+          <ModalTask />
+        </TasksProvider>
+      </BucketsInTasksProvider>
+    </>
   );
 }
 
