@@ -10,4 +10,9 @@ const users = async ()=>{
   return data
 }
 
-export { login, users };
+const userById = async(id: string)=>{
+  const {data} = await http.get(`/user/${id}`)
+  return data
+}
+
+export { login, users, userById };

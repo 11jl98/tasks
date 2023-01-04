@@ -1,18 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import "./index.css";
+
 function Task({ task, dragStart, dragEnter, drop, index, indexBucket }: any) {
   const [classDate, setClassDate] = useState<string>("date-task");
 
   const colorDate = () => {
     var partesData = task.date_end.split("-").reverse();
     var data = new Date(partesData[2], partesData[1] - 1, partesData[0]);
-    if (data > new Date()) setClassDate("date-task-venc");
+    if (new Date() > data) setClassDate("date-task-venc");
   };
 
   useEffect(() => {
-    colorDate()
+    colorDate();
   }, []);
+
+  const randomColor = () => {
+    var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    return randomColor;
+  };
 
   return (
     <div
@@ -23,9 +29,17 @@ function Task({ task, dragStart, dragEnter, drop, index, indexBucket }: any) {
       onDragEnd={drop}
       draggable
     >
-      <span className="label">
-        <p>Ag. dev</p>
-      </span>
+      <div style={{ display: "flex" }}>
+        {task.labels.map((label: any) => (
+          <span
+            key={label.id}
+            className="label"
+            style={{ backgroundColor: `#${randomColor()}` }}
+          >
+            <p>{label.title_label}</p>
+          </span>
+        ))}
+      </div>
       <h5 className="name-task">{task.title}</h5>
       <p className="description-task">{task.description}</p>
       <div className="container-user">
@@ -34,6 +48,13 @@ function Task({ task, dragStart, dragEnter, drop, index, indexBucket }: any) {
             {task.date_end.split("-").reverse().join("/")}
           </p>
         </span>
+        <div className="container-description-user">
+          <img
+            className={task.user?.avatar_url ? "img-user" : ""}
+            src={task.user?.avatar_url}
+            alt=""
+          />
+        </div>
       </div>
     </div>
   );

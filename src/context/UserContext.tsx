@@ -10,13 +10,24 @@ const DEFAULT_VALUE = {
   setModal: () => {},
   getUsers: () => {},
   usersList: [],
+  getUserById: () => {},
+  user: { id: "", name_user: "", avatar_url: "", password: "", rule: "" },
 };
 
 const ContextUser = createContext<UserContextType>(DEFAULT_VALUE);
 
 function UserProvider({ children }: any) {
-  const { auth, setAuth, UserAuth, isOpen, setModal, getUsers, usersList } =
-    User();
+  const {
+    auth,
+    setAuth,
+    UserAuth,
+    isOpen,
+    setModal,
+    getUsers,
+    usersList,
+    getUserById,
+    user,
+  } = User();
 
   return (
     <ContextUser.Provider
@@ -28,6 +39,8 @@ function UserProvider({ children }: any) {
         setModal,
         getUsers,
         usersList,
+        getUserById,
+        user,
       }}
     >
       {children}

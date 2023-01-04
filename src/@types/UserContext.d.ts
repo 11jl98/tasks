@@ -8,4 +8,6 @@ export type UserContextType = {
   setModal: Dispatch<SetStateAction<boolean>>;
   getUsers: () => void,
   usersList: UserType[],
+  getUserById: (id: string)=> void,
+  user: UserType | undefined
 };

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { login, users } from "../../services/users";
+import { login, users, userById } from "../../services/users";
 import { AuthType, UserType } from "../../@types/genericTypes";
 const INITIAL_VALUE = {
   user_name: "",
@@ -9,6 +9,7 @@ export default function User() {
   const [auth, setAuth] = useState<AuthType>(INITIAL_VALUE);
   const [isOpen, setModal] = useState<boolean>(false);
   const [usersList, setUsersList] = useState<UserType[]>([]);
+  const [user, setUser] = useState<UserType>();
 
   async function UserAuth() {
     try {
@@ -31,5 +32,14 @@ export default function User() {
     }
   }
 
-  return { auth, setAuth, UserAuth, isOpen, setModal, getUsers, usersList };
+  async function getUserById(id: string){
+    try {
+      const result = await userById(id)
+      setUser(result)
+    } catch (error) {
+      alert(error)
+    }
+  }
+
+  return { auth, setAuth, UserAuth, isOpen, setModal, getUsers, usersList, getUserById, user };
 }

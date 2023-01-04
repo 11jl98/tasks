@@ -208,3 +208,14 @@ P{
     background-color: #a0a0a0;
     transition: 0.2s linear;
 }
+
+.avata-user{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.option-user:nth-child(odd){
+    background-color: #dcdcdc;
+}

@@ -25,7 +25,7 @@ function Bucket() {
   const { isCreate, createTask, task, setTask, saveTask } =
     useContext(ContextTasks);
 
-  const { getUsers, usersList } = useContext(ContextUser);
+  const { getUsers, usersList, getUserById, user } = useContext(ContextUser);
 
   useEffect(() => {
     getUsers();
@@ -91,9 +91,17 @@ function Bucket() {
                     setTask({ ...task, id_user: e.target.value })
                   }
                 >
-                  <option value="">Atribuir</option>
+                  <option className="option-user" value="">
+                    Atribuir
+                  </option>
                   {usersList.map((user) => (
-                    <option value={user.id}>{user.name_user}</option>
+                    <option
+                      key={user.id}
+                      className="option-user"
+                      value={user.id}
+                    >
+                      {user.name_user}
+                    </option>
                   ))}
                 </select>
                 <button className="button-add" onClick={saveTask}>
@@ -112,6 +120,8 @@ function Bucket() {
                   drop={drop}
                   index={index}
                   indexBucket={indexBucket}
+                  getUserById={getUserById}
+                  user={user}
                 />
               </>
             ))}
