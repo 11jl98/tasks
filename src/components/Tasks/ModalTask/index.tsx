@@ -13,7 +13,7 @@ function ModalTask() {
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
       width: "600px",
-      height: "300px",
+      height: "600px",
     },
   };
 
@@ -30,14 +30,15 @@ function ModalTask() {
       contentLabel="Example Modal"
       ariaHideApp={false}
     >
-      <h5>Cadastre sua nova task</h5>
-      <input
-        type="text"
-        className="input-text"
-        placeholder="Digite o titulo..."
-        value={task.title || ""}
-        onChange={(e) => task({ ...task, title: e.target.value })}
-      />
+      <h5>{task.title}</h5>
+
+      <div className="user-task">
+        <img
+          className={task.user?.avatar_url ? "img-user-task" : ""}
+          src={task.user?.avatar_url}
+          alt=""
+        />
+      </div>
       <DatalistInput
         label="Status"
         onSelect={(item) => console.log(item.value)}

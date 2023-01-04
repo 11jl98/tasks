@@ -26,8 +26,10 @@ export default function BucketsInTasks() {
       console.log(error);
     }
   }
-  function openModal() {
+  function openModal(task:TaskType) {
+    setTask(task)
     setModalTask(true);
+
   }
 
   function createTask(id_bucket: string) {

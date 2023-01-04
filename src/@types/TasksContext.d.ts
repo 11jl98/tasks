@@ -1,6 +1,8 @@
+import { TaskType } from "./genericTypes";
+
 export type TaskContextType = {
     isOpen: boolean;
-    openModal: (id_bucket:string) => void;
+    openModal: (task:TaskType) => void;
     setModalTask: Dispatch<SetStateAction<boolean>>;
     task: any;
     setTask: Dispatch<SetStateAction<any>>;

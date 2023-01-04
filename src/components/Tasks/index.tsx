@@ -2,7 +2,15 @@
 import { useEffect, useState } from "react";
 import "./index.css";
 
-function Task({ task, dragStart, dragEnter, drop, index, indexBucket, openModal }: any) {
+function Task({
+  task,
+  dragStart,
+  dragEnter,
+  drop,
+  index,
+  indexBucket,
+  openModal,
+}: any) {
   const [classDate, setClassDate] = useState<string>("date-task");
 
   const colorDate = () => {
@@ -28,7 +36,7 @@ function Task({ task, dragStart, dragEnter, drop, index, indexBucket, openModal 
       onDragEnter={(e: any) => dragEnter(e, index, indexBucket)}
       onDragEnd={drop}
       draggable
-      onClick={openModal}
+      onClick={() => openModal(task)}
     >
       <div style={{ display: "flex" }}>
         {task.labels.map((label: any) => (
