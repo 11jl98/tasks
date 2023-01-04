@@ -34,6 +34,10 @@ P{
     color: #8f8f8f;
     font-size: 12px;
     margin: 0px 0px 8px 8px;
+    max-width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
 }
 
