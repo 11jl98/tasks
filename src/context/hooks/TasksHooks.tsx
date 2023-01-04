@@ -26,7 +26,7 @@ export default function BucketsInTasks() {
       console.log(error);
     }
   }
-  function openModal(id_bucket: string) {
+  function openModal() {
     setModalTask(true);
   }
 

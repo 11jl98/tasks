@@ -22,7 +22,7 @@ function Bucket() {
     save,
   } = useContext(ContextBucketsInTasks);
 
-  const { isCreate, createTask, task, setTask, saveTask } =
+  const { isCreate, createTask, task, setTask, saveTask, openModal } =
     useContext(ContextTasks);
 
   const { getUsers, usersList, getUserById, user } = useContext(ContextUser);
@@ -122,6 +122,7 @@ function Bucket() {
                   indexBucket={indexBucket}
                   getUserById={getUserById}
                   user={user}
+                  openModal={openModal}
                 />
               </>
             ))}
