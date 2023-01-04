@@ -1,4 +1,4 @@
-import { AuthType } from "./genericTypes";
+import { AuthType, UserType } from "./genericTypes";
 
 export type UserContextType = {
   auth: AuthType;
@@ -6,4 +6,6 @@ export type UserContextType = {
   UserAuth: () => void;
   isOpen: boolean;
   setModal: Dispatch<SetStateAction<boolean>>;
+  getUsers: () => void,
+  usersList: UserType[],
 };

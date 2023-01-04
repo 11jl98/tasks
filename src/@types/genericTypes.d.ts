@@ -15,5 +15,13 @@ export type TaskType = {
 
 export type AuthType = {
   user_name: string;
-  password: string
-}
+  password: string;
+};
+
+export type UserType = {
+  id: string;
+  name_user: string;
+  avatar_url?: string;
+  password: string;
+  rule: string;
+};

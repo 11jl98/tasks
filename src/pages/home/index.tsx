@@ -12,13 +12,13 @@ function Home() {
       <UserProvider>
         <Nav />
         <Login />
+        <BucketsInTasksProvider>
+          <TasksProvider>
+            <Bucket />
+            <ModalTask />
+          </TasksProvider>
+        </BucketsInTasksProvider>
       </UserProvider>
-      <BucketsInTasksProvider>
-        <TasksProvider>
-          <Bucket />
-          <ModalTask />
-        </TasksProvider>
-      </BucketsInTasksProvider>
     </>
   );
 }

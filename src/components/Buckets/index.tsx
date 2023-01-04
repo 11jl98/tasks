@@ -3,6 +3,7 @@ import "./index.css";
 import { useContext, useEffect } from "react";
 import { ContextBucketsInTasks } from "../../context/BucketsInTasksContext";
 import { ContextTasks } from "../../context/TasksContext";
+import { ContextUser } from "../../context/UserContext";
 
 import ModalBucket from "./ModalBucket";
 import Task from "../Tasks";
@@ -21,7 +22,14 @@ function Bucket() {
     save,
   } = useContext(ContextBucketsInTasks);
 
-  const { isCreate, createTask, task, setTask, saveTask } = useContext(ContextTasks);
+  const { isCreate, createTask, task, setTask, saveTask } =
+    useContext(ContextTasks);
+
+  const { getUsers, usersList } = useContext(ContextUser);
+
+  useEffect(() => {
+    getUsers();
+  }, []);
 
   useEffect(() => {
     bucketsInTasks();
@@ -84,11 +92,13 @@ function Bucket() {
                   }
                 >
                   <option value="">Atribuir</option>
-                  <option value="saab">Saab</option>
-                  <option value="opel">Opel</option>
-                  <option value="audi">Audi</option>
+                  {usersList.map((user) => (
+                    <option value={user.id}>{user.name_user}</option>
+                  ))}
                 </select>
-                <button className="button-add" onClick={saveTask}>Adicionar</button>
+                <button className="button-add" onClick={saveTask}>
+                  Adicionar
+                </button>
               </div>
             )}
 
