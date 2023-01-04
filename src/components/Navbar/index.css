@@ -26,3 +26,14 @@
     background-color: #c52a2a;
     color: white;
   }
+
+  .container-auth-user{
+    display: flex;
+    align-items: center;
+  }
+
+  .avatar-user{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }

@@ -12,6 +12,7 @@ const DEFAULT_VALUE = {
   usersList: [],
   getUserById: () => {},
   user: { id: "", name_user: "", avatar_url: "", password: "", rule: "" },
+
 };
 
 const ContextUser = createContext<UserContextType>(DEFAULT_VALUE);
@@ -27,6 +28,7 @@ function UserProvider({ children }: any) {
     usersList,
     getUserById,
     user,
+
   } = User();
 
   return (
@@ -41,6 +43,7 @@ function UserProvider({ children }: any) {
         usersList,
         getUserById,
         user,
+
       }}
     >
       {children}

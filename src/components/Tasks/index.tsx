@@ -38,7 +38,15 @@ function Task({
       draggable
       onClick={() => openModal(task)}
     >
-      <div style={{ display: "flex" }}>
+      <div
+        style={{
+          display: "flex",
+          maxWidth: "300px",
+          overflow: "hidden",
+          whiteSpace: "nowrap",
+          textOverflow: "ellipsis",
+        }}
+      >
         {task.labels.map((label: any) => (
           <span
             key={label.id}

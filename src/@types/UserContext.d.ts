@@ -6,8 +6,8 @@ export type UserContextType = {
   UserAuth: () => void;
   isOpen: boolean;
   setModal: Dispatch<SetStateAction<boolean>>;
-  getUsers: () => void,
-  usersList: UserType[],
-  getUserById: (id: string)=> void,
-  user: UserType | undefined
+  getUsers: () => void;
+  usersList: UserType[];
+  getUserById: (id: string) => void;
+  user: UserType | undefined;
 };

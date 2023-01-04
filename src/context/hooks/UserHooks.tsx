@@ -11,6 +11,7 @@ export default function User() {
   const [usersList, setUsersList] = useState<UserType[]>([]);
   const [user, setUser] = useState<UserType>();
 
+
   async function UserAuth() {
     try {
       const data = await login(auth.user_name, auth.password);
@@ -18,6 +19,7 @@ export default function User() {
       alert("Logado com sucesso");
       setModal(false);
       setAuth(INITIAL_VALUE);
+      localStorage.setItem( 'user', JSON.stringify(data.user))
     } catch (error) {
       alert(error);
     }
