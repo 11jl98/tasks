@@ -68,7 +68,7 @@
 }
 .task-create{
     width: 99%;
-    height: 177px;
+    height: auto;
     box-shadow: rgb(0 0 0 / 13%) 0px 6.4px 14.4px 0px, rgb(0 0 0 / 11%) 0px 1.2px 3.6px 0px;
     background-color: rgb(255, 255, 255);
     flex: 0 0 auto;

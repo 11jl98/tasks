@@ -1,6 +1,6 @@
 .task{
     width: 99%;
-    height: 130px;
+    height: auto;
     box-shadow: rgb(0 0 0 / 13%) 0px 6.4px 14.4px 0px, rgb(0 0 0 / 11%) 0px 1.2px 3.6px 0px;
     background-color: rgb(255, 255, 255);
     flex: 0 0 auto;
@@ -50,7 +50,7 @@ P{
 }
 
 .date-task-venc{
-    margin: 5px 0px 0px 5px;
+    margin: 5px 0px 5px 5px;
     padding: 3px;
     font-size: 13px;
     border-radius: 3px;
@@ -78,4 +78,16 @@ P{
     align-items: center;
     justify-content: center;
     padding: 3px;
+}
+
+.user-task{
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+
+}
+.img-user-task{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }

@@ -30,7 +30,7 @@ function ModalTask() {
       contentLabel="Example Modal"
       ariaHideApp={false}
     >
-      <h5>{task.title}</h5>
+      <h4>{task.title}</h4>
 
       <div className="user-task">
         <img
@@ -38,6 +38,7 @@ function ModalTask() {
           src={task.user?.avatar_url}
           alt=""
         />
+        <p>{task.user?.name_user}</p>
       </div>
       <DatalistInput
         label="Status"

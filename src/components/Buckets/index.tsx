@@ -53,9 +53,6 @@ function Bucket() {
                 className="task-create"
                 style={{ cursor: "default !important" }}
               >
-                <span className="label">
-                  <p>Ag. dev</p>
-                </span>
                 <input
                   type="text"
                   placeholder="DIgite aqui o titulo..."
