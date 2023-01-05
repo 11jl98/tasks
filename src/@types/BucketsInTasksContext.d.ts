@@ -1,3 +1,5 @@
+import { BucketsType } from "./genericTypes";
+
 export type BucketsInTasksContextType = {
   dragStart: (e: any, position: number, positionBucket: number) => void;
   dragEnter: (e: any, position: number, positionBucket: number) => void;
@@ -9,5 +11,7 @@ export type BucketsInTasksContextType = {
   setModal: Dispatch<SetStateAction<boolean>>;
   bucket: any;
   setBucket: Dispatch<SetStateAction<any>>;
-  save:() => void;
+  save: () => void;
+  bucketDataList: BucketsType[];
+  getBuckets: () => void;
 };

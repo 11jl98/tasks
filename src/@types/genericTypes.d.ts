@@ -1,4 +1,5 @@
 export type BucketsType = {
+  id?: string
   title: string;
 };
 

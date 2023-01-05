@@ -14,7 +14,9 @@ const DEFAULT_VALUE = {
   setModal: () => {},
   bucket: {},
   setBucket: () => {},
-  save: ()=> {}
+  save: ()=> {},
+  bucketDataList:[],
+  getBuckets: ()=>{},
 };
 
 const ContextBucketsInTasks =
@@ -32,7 +34,9 @@ function BucketsInTasksProvider({ children }: any) {
     setModal,
     bucket,
     setBucket,
-    save
+    save,
+    bucketDataList,
+    getBuckets,
   } = BucketsInTasks();
 
   return (
@@ -48,7 +52,9 @@ function BucketsInTasksProvider({ children }: any) {
         setModal,
         bucket,
         setBucket,
-        save
+        save,
+        bucketDataList,
+        getBuckets,
       }}
     >
       {children}

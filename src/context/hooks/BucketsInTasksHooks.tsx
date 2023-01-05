@@ -1,5 +1,9 @@
 import { useState, useRef } from "react";
-import { getBucketsInTasks, saveBucket } from "../../services/bucketsInstasks";
+import {
+  getBucketDatList,
+  getBucketsInTasks,
+  saveBucket,
+} from "../../services/bucketsInstasks";
 
 import { BucketsType } from "../../@types/genericTypes";
 
@@ -10,6 +14,7 @@ export default function BucketsInTasks() {
   const dragOverItemBucket = useRef<number>(0);
   const [listBuckets, setListBuckets] = useState<Array<any>>([]);
   const [bucket, setBucket] = useState<BucketsType>({ title: "" });
+  const [bucketDataList, setBucketDataList] = useState<BucketsType[]>([]);
   const [isOpen, setModal] = useState<Boolean>(false);
 
   function dragStart(e: any, position: number, positionBucket: number) {
@@ -19,7 +24,6 @@ export default function BucketsInTasks() {
   function dragEnter(e: any, position: number, positionBucket: number) {
     dragOverItem.current = position;
     dragOverItemBucket.current = positionBucket;
-
   }
   function drop() {
     const copyListItems = [...listBuckets];
@@ -48,9 +52,18 @@ export default function BucketsInTasks() {
   async function save() {
     try {
       await saveBucket(bucket);
-      alert("registro salvo")
+      alert("registro salvo");
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  async function getBuckets() {
+    try {
+      const data = await getBucketDatList();
+      setBucketDataList(data);
+    } catch (error) {
+      alert(error);
     }
   }
 
@@ -66,5 +79,7 @@ export default function BucketsInTasks() {
     bucket,
     setBucket,
     save,
+    bucketDataList,
+    getBuckets,
   };
 }
