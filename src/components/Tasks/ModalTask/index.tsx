@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Modal from "react-modal";
-import { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import { ContextTasks } from "../../../context/TasksContext";
 import { ContextBucketsInTasks } from "../../../context/BucketsInTasksContext";
-import DatalistInput from "react-datalist-input";
+import DataList from "react-datalist-field/build";
 
 function ModalTask() {
   const customStyles = {
@@ -18,17 +19,28 @@ function ModalTask() {
     },
   };
 
-  const { isOpen, setModalTask, task } = useContext(ContextTasks);
-  const { bucketDataList, getBuckets} = useContext(ContextBucketsInTasks)
+  const { isOpen, setModalTask, task, setTask } = useContext(ContextTasks);
+  const { bucketDataList, getBuckets } = useContext(ContextBucketsInTasks);
+
+  const [text, setText] = useState<string>("");
 
   const randomColor = () => {
     var randomColor = Math.floor(Math.random() * 16777215).toString(16);
     return randomColor;
   };
 
+  const handleChange = useCallback(
+    (e: any) => {
+      console.log(e.target.value);
+    },
+
+    [text]
+  );
+
   useEffect(() => {
-    getBuckets()
-  }, [isOpen]);
+    getBuckets();
+  }, []);
+
   return (
     <Modal
       isOpen={isOpen}
@@ -69,25 +81,14 @@ function ModalTask() {
           </span>
         ))}
       </div>
-      <div>
-        <DatalistInput
-          label="Status"
-          onSelect={(item) => console.log(item.value)}
-          items={bucketDataList}
-        />
-
-        <DatalistInput
-          label="Status"
-          onSelect={(item) => console.log(item.value)}
-          items={[
-            { id: "Chocolate", value: "Chocolate" },
-            { id: "Coconut", value: "Coconut" },
-            { id: "Mint", value: "Mint" },
-            { id: "Strawberry", value: "Strawberry" },
-            { id: "Vanilla", value: "Vanilla" },
-          ]}
-        />
-      </div>
+      <DataList
+        options={bucketDataList}
+        id="id"
+        value1="title"
+        selectedIdName="selectedCar"
+        selectedId=""
+        onOptionChange={handleChange}
+      />
       <div className="containet-buttons">
         <button className="save-bucket">Concluir</button>
         <button

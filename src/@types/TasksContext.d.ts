@@ -5,7 +5,7 @@ export type TaskContextType = {
     openModal: (task:TaskType) => void;
     setModalTask: Dispatch<SetStateAction<boolean>>;
     task: any;
-    setTask: Dispatch<SetStateAction<any>>;
+    setTask: Dispatch<SetStateAction<TaskType>>;
     saveTask:() => void;
     isCreate: boolean,
     createTask: (id_bucket:string) => void,
